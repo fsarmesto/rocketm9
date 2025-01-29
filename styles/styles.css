@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'Letters';
+  /* Give your font a name */
+  src: url('.fonts/FasterOne-Regular.ttf');
+}
+@keyframes planet-rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes background-stars {
+  0% {
+    background-position-x: 0%;
+  }
+  99% {
+    background-position: 99%;
+  }
+  99.5% {
+    background-position: 99.5%;
+  }
+  100% {
+    background-position: -10%;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+.fade-in {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  animation: fadein 1s;
+}
+main {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../img/stars.png');
+  background-repeat: repeat-x;
+  animation-name: background-stars;
+  animation-timing-function: linear;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+main section {
+  position: relative;
+}
+main div.planet {
+  position: absolute;
+  z-index: 1000;
+  animation-name: planet-rot;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background: url("../img/planet.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-width: 50vw;
+  min-height: 50vh;
+}
