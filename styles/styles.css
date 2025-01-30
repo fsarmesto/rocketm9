@@ -1,13 +1,12 @@
 @font-face {
-  font-family: 'Letters';
-  /* Give your font a name */
+  font-family: 'SPACE';
   src: url('.fonts/FasterOne-Regular.ttf');
 }
 @keyframes planet-rot {
-  0% {
+  100% {
     transform: rotate(0deg);
   }
-  100% {
+  0% {
     transform: rotate(-360deg);
   }
 }
@@ -16,13 +15,13 @@
     background-position-x: 0%;
   }
   99% {
-    background-position: 99%;
+    background-position-x: 99%;
   }
   99.5% {
-    background-position: 99.5%;
+    background-position-x: 99.5%;
   }
   100% {
-    background-position: -10%;
+    background-position-x: -10%;
   }
 }
 @keyframes fadein {
@@ -35,13 +34,17 @@
   }
 }
 .fade-in {
+  position: absolute;
   height: 100vh;
   width: 100vw;
   background-color: black;
-  animation: fadein 1s;
+  animation: fadein 10s;
+  animation-fill-mode: forwards;
+  z-index: 1000;
 }
 main {
   position: relative;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -53,12 +56,10 @@ main {
   animation-duration: 8s;
   animation-iteration-count: infinite;
 }
-main section {
+main .stars {
   position: relative;
 }
 main div.planet {
-  position: absolute;
-  z-index: 1000;
   animation-name: planet-rot;
   animation-duration: 10s;
   animation-timing-function: linear;
