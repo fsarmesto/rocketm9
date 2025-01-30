@@ -3,6 +3,24 @@
     src: url('.fonts/FasterOne-Regular.ttf');
 }
 
+@keyframes rocket-rot {
+    0%{
+        transform: rotate(360deg) translateX(25vh); // Starting point (rightside ->)
+    }
+
+    50%{
+        transform: rotate(180deg) translateX(25vh);
+    }
+
+    75%{
+        transform: rotate(90deg) translateX(25vh) scale(50%); // Shrink when at the top of the planet
+    }
+
+    100%{
+        transform: rotate(0deg) translateX(25vh);
+    }
+}
+
 @keyframes planet-rot {
     100%{
         transform: rotate(0deg);
@@ -65,16 +83,26 @@ main{
         position: relative;
     }       
         div.planet {
-
             animation-name: planet-rot;
             animation-duration: 10s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
+            animation-direction: reverse;
             background: url("../img/planet.png");
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             min-width: 50vw;
             min-height: 50vh;
+        }
+        div.rocket-container{
+            position: absolute;
+            transform: rotate(360deg) scaleY(-1);
+            img{
+                animation: rocket-rot 10s linear infinite;
+                //animation-direction: reverse;
+                transform: rotate(360deg) translateX(25vh);
+                filter: rotate(80deg);
+            }
         }
 }

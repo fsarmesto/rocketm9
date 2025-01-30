@@ -2,6 +2,20 @@
   font-family: 'SPACE';
   src: url('.fonts/FasterOne-Regular.ttf');
 }
+@keyframes rocket-rot {
+  0% {
+    transform: rotate(360deg) translateX(25vh);
+  }
+  50% {
+    transform: rotate(180deg) translateX(25vh);
+  }
+  75% {
+    transform: rotate(90deg) translateX(25vh) scale(50%);
+  }
+  100% {
+    transform: rotate(0deg) translateX(25vh);
+  }
+}
 @keyframes planet-rot {
   100% {
     transform: rotate(0deg);
@@ -64,10 +78,20 @@ main div.planet {
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-direction: reverse;
   background: url("../img/planet.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   min-width: 50vw;
   min-height: 50vh;
+}
+main div.rocket-container {
+  position: absolute;
+  transform: rotate(360deg) scaleY(-1);
+}
+main div.rocket-container img {
+  animation: rocket-rot 10s linear infinite;
+  transform: rotate(360deg) translateX(25vh);
+  filter: rotate(80deg);
 }
