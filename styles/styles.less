@@ -56,7 +56,7 @@
 }
 
 .fade-in{
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 100vw;
     background-color: black;
@@ -65,22 +65,39 @@
     z-index: 1000;
 }
 
-main{ 
-    //background-color: black;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body{
+    min-height: 100vh;
     background-image: url('../img/stars.png');
     background-repeat: repeat-x;
     animation-name: background-stars;
     animation-timing-function: linear;
     animation-duration: 8s;
     animation-iteration-count: infinite; 
+    background-size: cover;
+}
+
+main{ 
+    //background-color: black;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .stars{
-        position: relative;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div{
+            z-index: 10002;
+            &::after{
+                content: "★";
+                color: white;
+            }
+        }
     }       
         div.planet {
             animation-name: planet-rot;
@@ -102,7 +119,7 @@ main{
                 animation: rocket-rot 10s linear infinite;
                 //animation-direction: reverse;
                 transform: rotate(360deg) translateX(25vh);
-                filter: rotate(80deg);
+                //filter: rotate(80deg);
             }
         }
 }
