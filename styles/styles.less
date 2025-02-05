@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'SPACE';
-    src: url('.fonts/FasterOne-Regular.ttf');
+    src: url('../fonts/FasterOne-Regular.ttf');
 }
 
 @planet-width: 40vw;
 @planet-height: 40vh;
 @rotation-progress: 90deg;
-
+@letter-color: #d25605;
 
 
 @keyframes rocket-rot {
@@ -38,16 +38,16 @@
 
 @keyframes background-stars{
     0% {
-        background-position-x: 0%;
+        background-position-x: 0vw;
     }
     99%{
-        background-position-x: 99%;
+        background-position-x: 99vw;
     }
     99.5%{
-        background-position-x: 99.5%;
+        background-position-x: 99.5vw;
     }
     100%{
-        background-position-x: -10%;
+        background-position-x: 100vw;
     }
 }
 
@@ -73,29 +73,39 @@
 }
 
 body{
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
     background-image: url('../img/stars.png');
     background-repeat: repeat;
     animation-name: background-stars;
     animation-timing-function: linear;
-    animation-duration: 8s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
+}
+
+.star{
+    max-height: max-content;
+    max-width: max-content;
+    background-color: red;
+    margin-left: 0;
 }
 
 .stars{
     display: flex;
     flex-direction: row;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
     article{
         display: flex;
         flex-direction: row;
     }
     div{
+        width: 20px;
+        height: 20px;
         z-index: 10002;
-        &::after{
-            content: " ★ ";
-            color: white;
-        }
+        content: "★";
+        color: white;
     }
 } 
 
@@ -127,6 +137,17 @@ main{
             //animation-direction: reverse; <-- Not needed because scaleY(-1) is already reversing
             transform: rotate(360deg) translateX(20vh); // Not really necessary because the animation will do it
             filter: drop-shadow(-73px 5px 10px #000000); // ^
+        }
+    }
+    .letters{
+        position: absolute;
+        z-index: 999999999999999999999;
+        
+        span{
+            font-size: 500%;
+            color: @letter-color;
+            font-family: SPACE;
+            opacity: 0.5;
         }
     }
 }

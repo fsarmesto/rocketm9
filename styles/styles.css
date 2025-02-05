@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'SPACE';
-  src: url('.fonts/FasterOne-Regular.ttf');
+  src: url('../fonts/FasterOne-Regular.ttf');
 }
 @keyframes rocket-rot {
   0% {
@@ -30,16 +30,16 @@
 }
 @keyframes background-stars {
   0% {
-    background-position-x: 0%;
+    background-position-x: 0vw;
   }
   99% {
-    background-position-x: 99%;
+    background-position-x: 99vw;
   }
   99.5% {
-    background-position-x: 99.5%;
+    background-position-x: 99.5vw;
   }
   100% {
-    background-position-x: -10%;
+    background-position-x: 100vw;
   }
 }
 @keyframes fadein {
@@ -62,28 +62,37 @@
   animation-iteration-count: 1;
 }
 body {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background-image: url('../img/stars.png');
   background-repeat: repeat;
   animation-name: background-stars;
   animation-timing-function: linear;
-  animation-duration: 8s;
+  animation-duration: 15s;
   animation-iteration-count: infinite;
+}
+.star {
+  max-height: max-content;
+  max-width: max-content;
+  background-color: red;
+  margin-left: 0;
 }
 .stars {
   display: flex;
   flex-direction: row;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
 }
 .stars article {
   display: flex;
   flex-direction: row;
 }
 .stars div {
+  width: 20px;
+  height: 20px;
   z-index: 10002;
-}
-.stars div::after {
-  content: " ★ ";
+  content: "★";
   color: white;
 }
 main {
@@ -115,4 +124,14 @@ main div.rocket-container img {
   animation: rocket-rot 10s linear infinite;
   transform: rotate(360deg) translateX(20vh);
   filter: drop-shadow(-73px 5px 10px #000000);
+}
+main .letters {
+  position: absolute;
+  z-index: 999999999999999999999;
+}
+main .letters span {
+  font-size: 500%;
+  color: #d25605;
+  font-family: SPACE;
+  opacity: 0.5;
 }
