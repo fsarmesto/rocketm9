@@ -71,6 +71,21 @@ body {
   animation-duration: 8s;
   animation-iteration-count: infinite;
 }
+.stars {
+  display: flex;
+  flex-direction: row;
+}
+.stars article {
+  display: flex;
+  flex-direction: row;
+}
+.stars div {
+  z-index: 10002;
+}
+.stars div::after {
+  content: " ★ ";
+  color: white;
+}
 main {
   position: relative;
   width: 100%;
@@ -78,21 +93,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-main .stars {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-main .stars div {
-  z-index: 10002;
-}
-main .stars div::after {
-  content: "★";
-  color: white;
 }
 main div.planet {
   animation-name: planet-rot;

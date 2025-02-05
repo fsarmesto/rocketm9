@@ -3,30 +3,36 @@
     src: url('.fonts/FasterOne-Regular.ttf');
 }
 
+@planet-width: 40vw;
+@planet-height: 40vh;
+@rotation-progress: 90deg;
+
+
+
 @keyframes rocket-rot {
     0%{
-        transform: rotate(360deg) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000); // Starting point (rightside ->)
+        transform: rotate(@rotation-progress*4) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000); // Starting point (rightside ->)
     }
 
     50%{
-        transform: rotate(180deg) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000);
+        transform: rotate(@rotation-progress*2) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000);
     }
 
     75%{
-        transform: rotate(90deg) translateX(20vh) scale(50%); filter: drop-shadow(0px 5px 10px #000000); // Shrink when at the top of the planet and make the shadow more realistic
+        transform: rotate(@rotation-progress) translateX(20vh) scale(50%); filter: drop-shadow(0px 5px 10px #000000); // Shrink when at the top of the planet and make the shadow more realistic
     }
 
     100%{
-        transform: rotate(0deg) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000);
+        transform: rotate(@rotation-progress*0) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000);
     }
 }
 
 @keyframes planet-rot {
     100%{
-        transform: rotate(0deg);
+        transform: rotate(@rotation-progress*0);
     }
     0%{
-        transform: rotate(-360deg);
+        transform: rotate(@rotation-progress*-4);
     }
 }
 
@@ -77,29 +83,29 @@ body{
     animation-iteration-count: infinite;
 }
 
+.stars{
+    display: flex;
+    flex-direction: row;
+    article{
+        display: flex;
+        flex-direction: row;
+    }
+    div{
+        z-index: 10002;
+        &::after{
+            content: " ★ ";
+            color: white;
+        }
+    }
+} 
+
 main{ 
-    //background-color: black;
     position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    .stars{
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        div{
-            z-index: 10002;
-            &::after{
-                content: "★";
-                color: white;
-            }
-        }
-    }       
+    align-items: center;      
     div.planet {
         animation-name: planet-rot;
         animation-duration: 10s;
@@ -110,8 +116,8 @@ main{
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        min-width: 40vw;
-        min-height: 40vh;
+        min-width: @planet-width;
+        min-height: @planet-height;
     }
     div.rocket-container{
         position: absolute;
@@ -119,8 +125,8 @@ main{
         img{
             animation: rocket-rot 10s linear infinite;
             //animation-direction: reverse; <-- Not needed because scaleY(-1) is already reversing
-            transform: rotate(360deg) translateX(20vh);
-            filter: drop-shadow(-73px 5px 10px #000000);
+            transform: rotate(360deg) translateX(20vh); // Not really necessary because the animation will do it
+            filter: drop-shadow(-73px 5px 10px #000000); // ^
         }
     }
 }
