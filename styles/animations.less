@@ -1,0 +1,66 @@
+@planet-width: 40vw;
+@planet-height: 40vh;
+@rotation-progress: 90deg;
+
+@keyframes rocket-rot {
+    0%{
+        transform: rotate(@rotation-progress*4) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000); // Starting point (rightside ->)
+    }
+
+    50%{
+        transform: rotate(@rotation-progress*2) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000);
+    }
+
+    75%{
+        transform: rotate(@rotation-progress) translateX(20vh) scale(50%); filter: drop-shadow(0px 5px 10px #000000); // Shrink when at the top of the planet and make the shadow more realistic
+    }
+
+    100%{
+        transform: rotate(@rotation-progress*0) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000);
+    }
+}
+
+@keyframes planet-rot {
+    100%{
+        transform: rotate(@rotation-progress*0);
+    }
+    0%{
+        transform: rotate(@rotation-progress*-4);
+    }
+}
+
+@keyframes background-stars{
+    0% {
+        background-position-x: 0vw;
+    }
+    99%{
+        background-position-x: 99vw;
+    }
+    99.5%{
+        background-position-x: 99.5vw;
+    }
+    100%{
+        background-position-x: 100vw;
+    }
+}
+
+@keyframes star-falling{
+    0%{
+        transform: rotate(45deg) translateX(-100%);
+    }
+
+    100%{
+        transform: rotate(45deg) translateX(100%);
+    }
+    
+}
+
+@keyframes fadein{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
