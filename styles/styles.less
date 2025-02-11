@@ -60,7 +60,6 @@ section.stars{
     div{
         width: 20px;
         height: 20px;
-        z-index: 10002;
         content: "★";
         color: white;
     }
@@ -99,13 +98,15 @@ main{
     .letters{
         position: absolute;
         z-index: 99;
+        display: flex;
         
         
         span{
-            font-size: 500%;
+            font-size: 600%;
+            letter-spacing: 0.2em;
             color: @letter-color;
             font-family: SPACE;
-            opacity: 0.5;
+            opacity: 0.75;
         }
     }
 }
