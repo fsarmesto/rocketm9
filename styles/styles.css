@@ -3,6 +3,12 @@
   font-family: 'SPACE';
   src: url('../fonts/FasterOne-Regular.ttf');
 }
+:root {
+  --planet-width: 40vw;
+  --planet-height: 40vh;
+  --rotation-progress: 90deg;
+  --letter-color: #d25605;
+}
 .fade-in {
   position: fixed;
   height: 100vh;
@@ -71,8 +77,8 @@ main div.planet {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  min-width: 40vw;
-  min-height: 40vh;
+  min-width: var(--planet-width);
+  min-height: var(--planet-height);
 }
 main div.rocket-container {
   position: absolute;
@@ -91,7 +97,7 @@ main .letters {
 main .letters span {
   font-size: 600%;
   letter-spacing: 0.2em;
-  color: #d25605;
+  color: var(--letter-color);
   font-family: SPACE;
   opacity: 0.75;
 }

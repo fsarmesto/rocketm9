@@ -4,7 +4,7 @@
 
 @keyframes rocket-rot {
     0%{
-        transform: rotate(@rotation-progress*4) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000); // Starting point (rightside ->)
+        transform: rotate(var(--rotation-progress)*4) translateX(20vh) scale(75%); filter: drop-shadow(-50px 5px 10px #000000); // Starting point (rightside ->)
     }
 
     50%{
@@ -48,11 +48,9 @@
     0%{
         transform: rotate(45deg) translateX(-100vw);
     }
-
     100%{
         transform: rotate(45deg) translateX(50vw);
     }
-    
 }
 
 @keyframes fadein{
